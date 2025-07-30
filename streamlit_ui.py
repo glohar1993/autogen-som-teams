@@ -26,10 +26,35 @@ load_dotenv()
 # Import our SoM framework
 try:
     from demo_simple import SoMDemoSimulator
-    from config import SCENARIOS, TEAM_CONFIGURATIONS
+    from config import SoMConfig
 except ImportError as e:
     st.error(f"Import error: {e}")
     st.stop()
+
+# Define scenarios and configurations locally
+SCENARIOS = {
+    "product_launch": {
+        "name": "Product Launch Planning",
+        "description": "Complete go-to-market strategy development",
+        "teams": ["Research & Analysis", "Creative & Design", "Technical Implementation"]
+    },
+    "crisis_management": {
+        "name": "Crisis Management Response",
+        "description": "Rapid incident response for data security breach",
+        "teams": ["Incident Analysis", "Crisis Communication", "Technical Remediation"]
+    },
+    "interactive_demo": {
+        "name": "Interactive Framework Demo",
+        "description": "Live demonstration of SoM framework capabilities",
+        "teams": ["Framework Analysis", "Demonstration Strategy", "Technical Implementation"]
+    }
+}
+
+TEAM_CONFIGURATIONS = {
+    "inner_teams": 3,
+    "outer_agents": 3,
+    "total_agents": 12
+}
 
 # Page configuration
 st.set_page_config(
